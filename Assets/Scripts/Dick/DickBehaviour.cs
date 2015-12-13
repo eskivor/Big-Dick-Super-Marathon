@@ -8,6 +8,8 @@ public class DickBehaviour : MonoBehaviour
 	[SerializeField] int dickID;
 	[SerializeField] int axisValueToGet;
 
+	TimeManager timeManager;
+
 	AudioSource audioSource;
 	AudioClip leftSFX;
 	AudioClip rightSFX;
@@ -35,12 +37,13 @@ public class DickBehaviour : MonoBehaviour
 
 		dickCoverDefaultScale = dickCover.localScale.y;
 
+		timeManager = FindObjectOfType<TimeManager>();
 		audioSource = GetComponent<AudioSource>();
 	}
 
 	void Update ()
 	{
-		if (Input.GetAxisRaw ("Horizontal") == axisValueToGet)
+		if (timeManager.GameHasStarted && Input.GetAxisRaw ("Horizontal 0" + dickID) == axisValueToGet)
 				GrowDick ();
 	}
 
