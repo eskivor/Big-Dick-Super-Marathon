@@ -2,5 +2,7 @@
 {
 	MainMenuScene,
 	CreditsScene,
-	DickScene
+	DickScene,
+	HowToPlayScene,
+	ModeSelectionScene
 }
